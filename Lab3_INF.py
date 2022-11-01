@@ -21,7 +21,7 @@ def Task60Points(number):
 
 def AdditionalTask18Points():
     task = 'Уважаемые студенты! В эту субботу в 15:00 планируется доп. занятие на 2 часа. То есть в 17:00:01 оно уже кончится.'
-    print(re.sub(r"(?: (\d{2}:\d{2}:\d{2}) | (\d{2}:\d{2})\s)", ' TBD ', task))
+    print(re.sub(r"(?:(\d{2}:\d{2}:\d{2})+|(\d{2}:\d{2}))", 'TBD', task))
 
 
 def AddiyionalTask22Points():

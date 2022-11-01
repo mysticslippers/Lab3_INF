@@ -20,17 +20,18 @@ def Task60Points(number):
 
 
 def AdditionalTask18Points():
-    task = 'Уважаемые студенты! В эту субботу в 15:00 планируется доп. занятие на 2 часа. То есть в 17:00:01 оно уже кончится.'
-    print(re.sub(r"(?:(\b\d{2}:\d{2}:\d{2}\b)+|(\b\d{2}:\d{2}\b))", 'TBD', task))
+    task = 'Уважаемые студенты! В эту субботу в 1500:00 17:00:01:15 17:00:99 15:0-1:10 планируется доп. занятие на 2 часа. То есть в 17:00:01 оно уже кончится.'
+    print(re.sub(r"(?:((\s[0-1][0-9]:[0-5][0-9]:[0-5][0-9]\s)+|([2][0-4]:[0-5][0-9]:[0-5][0-9]))+|((\s[0-1][0-9]:[0-5][0-9]\s)+|(\s[2][0-4]:[0-5][0-9]\s)))", 'TBD', task))
 
 
-def AddiyionalTask22Points():
-    for i in range(5):
-        task = input("Введите почту: ")
-        if re.fullmatch((r'(?: [A-Za-z0-9]+[._]?)*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})'), task):
-            print(''.join(re.findall(r'@\w+.\w+', task)))
+def AdditionalTask22Points():
+    tests = ['google@niuitmo.ru', 'google@niu@itmo.ru', '____@niuitmo.ru', 'google@niuitmo', 'ete.rnal.mar.tyr13579@gmail.com']
+    for i in tests:
+        if re.fullmatch((r'(?:([a-zA-Z0-9]{1}[a-zA-Z0-9\.\_]{1,}[a-zA-Z0-9]{1})[@]([a-zA-Z0-9]{1,}[.]){1,2}[a-zA-Z]{2,})'), i):
+            print(''.join(re.findall(r'@\w+.\w+', i)))
         else:
             print('Fail!')
+
 
 isu = int(input())
 print("Проверка основого задания на 60 баллов: ")
@@ -40,4 +41,4 @@ print("Проверка дополнительного задания на +18 �
 print(AdditionalTask18Points())
 print(" ")
 print("Проверка дополнительного задания на +22 балла: ")
-print(AddiyionalTask22Points())
+print(AdditionalTask22Points())

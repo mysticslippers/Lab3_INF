@@ -27,7 +27,7 @@ def AdditionalTask18Points():
 def AdditionalTask22Points():
     tests = ['google@niuitmo.ru', 'google@niu@itmo.ru', '____@niuitmo.ru', 'google@niuitmo', 'ete.rnal.mar.tyr13579@gmail.com']
     for i in tests:
-        if re.fullmatch((r'(?:([a-zA-Z0-9]{1}[a-zA-Z0-9\.\_]{1,}[a-zA-Z0-9]{1})[@]([a-zA-Z0-9]{1,}[.]){1,2}[a-zA-Z]{2,})'), i):
+        if re.fullmatch((r'(?:([a-zA-Z0-9][a-zA-Z0-9\.\_]+[a-zA-Z0-9])[@]([a-zA-Z0-9]+[.]){1,2}[a-zA-Z]{2,})'), i):
             print(''.join(re.findall(r'@\w+.\w+', i)))
         else:
             print('Fail!')
